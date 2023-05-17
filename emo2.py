@@ -12,6 +12,8 @@ if not cap.isOpened():
 
 while True :
     ret,frame = cap.read()
+    if frame is None:
+        raise ValueError('Unable to get a frame!')
     result = DeepFace.analyze(frame,actions=['emotion'])
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = faceCascade.detectMultiScale(gray,1.1,4)
@@ -21,7 +23,7 @@ while True :
     font = cv2.FONT_HERSHEY_SIMPLEX
     
     cv2.putText(frame,
-                result['dominant_emotion'],
+                result[0]['dominant_emotion'],
                 (50,50),
                 font, 3,
                 (0,0,255),
