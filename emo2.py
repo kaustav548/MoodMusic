@@ -19,6 +19,8 @@ while True :
     faces = faceCascade.detectMultiScale(gray,1.1,4)
     for(x,y,w,h) in faces :
         cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
+    
+    print(result)
         
     font = cv2.FONT_HERSHEY_SIMPLEX
     
@@ -36,4 +38,6 @@ while True :
 
 cap.release()
 cv2.destroyAllWindows()
+
+print(result[0]['dominant_emotion'])
 
