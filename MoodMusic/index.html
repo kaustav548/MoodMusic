@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Video Stream</title>
+    <style>
+      body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-image: url({{url_for('static', filename = '527669.jpg')}});
+     }
+     .row{
+       color: #fff;
+     }
+     .button {
+      padding : 6px 12px;
+      margin : 0.5em 0;
+      background : #009578;
+      color : #ffffff;
+      font-weight : bold;
+      border-radius: 8px; 
+      border: none;
+      outline : none;
+      cursor : pointer ;
+    }
+    </style>
+  </head>
+  <body>
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-8  offset-lg-2">
+      
+            
+                  <h2 class="mt-5">MOOD MUSIC By CCA RnD Ai/Ml :</h2>
+            <form method="post" action="{{ url_for('tasks') }}">
+            <input type="submit" value="Stop/Start" name="stop" class="button" />
+            <input type="submit" value="Capture" name="click" class="button"/>
+            <input type="submit" value="Face Only" name="face" class="button"/>
+            <input type="submit" value="Start/Stop Recording" name="rec" class="button"/>
+            </form>
+                  <img src="{{ url_for('video_feed') }}" height="80%">
+                  <br>
+                  <button class="button" 
+                    onclick="window.location.href = 'http://localhost:5000/mood';">
+                    Start Detecting
+                  </button>
+            <h3 style="font-family:courier;">Instructions:</h3>
+            <ol style="font-family:courier;">
+            <li>Stop/Start--Toggle between stop or start live streaming</li>
+            <li>Capture--Take still-shot and save in the 'shots' directory</li>
+            <li>Face Only--emotion detectror(Toggle on/off)</li> 
+            <li>Start/Stop Recording--Toggle between starting and stopping video recording</li>	
+            
+              </div>
+          </div>
+      </div>
+  </body>
+</html>
