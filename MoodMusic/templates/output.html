@@ -1,0 +1,57 @@
+
+<html lang="en">
+  <head>
+    <style>
+      {
+        margin: 10;
+        padding: 10;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+      body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-image: url({{url_for('static', filename = 'abc.jpg')}});
+      }
+      .box{
+        position: relative;
+        width: 400px;
+        height:400px;
+        background: #ffb6c1;
+        border-radius: 8px;
+        margin : 10px;
+        padding : 10px;
+      }
+      h1{
+        color : #36013f;
+      }
+      .button {
+        padding : 6px 12px;
+        margin : 0.5em 0;
+        background : #009578;
+        color : #ffffff;
+        font-weight : bold; 
+        border : none;
+        outline : none;
+        cursor : pointer ;
+        width: 400px;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class = "box">
+      <br><br>
+      <h1> MOOD DETECTED : {{mood}} </h1>
+      <br><br>
+      <h1> RECOMMENDED SONG : {{song}} </h1>
+      <br><br>
+      <button class="button" 
+          onclick="window.location.href = '{{link}}';">
+        PLAY
+      </button>
+    </div>
+  </body>
+</html>
